@@ -9,23 +9,29 @@
     
 </body>
 <script>
+
+// Gender function
+function getgender(){
+    let gender = " ";
+    while (true) {
+        gender = prompt("Please enter your gender (male or female):").toLowerCase();
+        if (gender === "male" || gender === "female") {
+            return gender ;
+        }
+        alert("Invalid input. Please enter 'male' or 'female'.");
+    }
+}
+
     // Person name 
     const name = prompt("Please enter your name:");
 
     // Gender
-    let gender = "";
-    while (true) {
-        gender = prompt("Please enter your gender (male or female):").toLowerCase();
-        if (gender === "male" || gender === "female") {
-            break; // Exit the loop if a valid input is entered
-        }
-        alert("Invalid input. Please enter 'male' or 'female'.");
-    }
+     let genderinput =getgender();
 
     // Greet the user based on gender
-    if (gender === "male") {
+    if (genderinput === "male") {
         alert(`Welcome, Mr. ${name}!`);
-    } else if (gender === "female") {
+    } else if (genderinput === "female") {
         alert(`Welcome, Ms. ${name}!`);
     }
 
@@ -52,9 +58,9 @@
 
             default:
                 alert("The order you selected does not exist. Please try again.");
-                continue; // Restart the loop for a valid input
+                continue; 
         }
-        break; // Exit the loop if a valid order is selected
+        break; 
     }
 
     // Alert 
@@ -62,5 +68,13 @@
 
     // Console print
     console.log(`${name} has ordered a ${orderName} (${orderType}).`);
+
+    // user info 
+    let user_info=[name,genderinput,orderType,orderName];
+
+    for (let i = 0; i < user_info.length; i++) {
+    console.log(user_info[i]);
+}
+    
 </script>
 </html>
